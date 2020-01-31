@@ -1,0 +1,7 @@
+string
+5
+This is one of the algorithms
+As merge sort is a recursive algorithm
+Following diagram shows the complete merge sort process
+We then call the merge function
+Merge function compares the elements of both sub-arrays

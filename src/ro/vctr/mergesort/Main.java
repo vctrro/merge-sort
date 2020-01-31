@@ -1,22 +1,61 @@
 package ro.vctr.mergesort;
 
-import java.util.Arrays;
+import java.io.*;
+import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) {
-        int[] unsortInt = {1,3,5,9,1,4,3,0,2,5,64,56,34,3,7,56,87,3,25,6,7,45,867,678,7,8,658,6578,35,25,2,3,3,4,1324,25,434,43,};
-        int[] sortInt = mergeSort(unsortInt);
-        double[] unsortDouble = {1.1,1.4,0.1234,0,123,0.12349,0.7671236,0.3452727,0.34527211,123.23,1.123,2.22,0.1752,0,0.1212,5.432,0.11111111111,0.1111111111111};
-        double[] sortDouble = mergeSort(unsortDouble);
-        String[] unsortStr = {"aabbcc","велосипед","барбекю","Корова","мама","Мама","Sport","spot","гусь","Чайка","купэ","Мама мыла раму","_34","чайник","Error","3 поросёнка","red","DNS","Build completed","2312","23 12"};
-        String[] sortStr = mergeSort(unsortStr);
-        String[] sortStrLength = mergeSortStringLength(unsortStr);
+    public static void main(String[] args) throws IOException {
+        BufferedReader in = new BufferedReader(new FileReader("input.txt"));
+        StringTokenizer str;
 
-        System.out.println(Arrays.toString(sortInt));
-        System.out.println(Arrays.toString(sortDouble));
-        System.out.println(Arrays.toString(sortStr));
-        System.out.println(Arrays.toString(sortStrLength));
+        str = new StringTokenizer(in.readLine());
+        final String dataType = str.nextToken(); //data type
+        str = new StringTokenizer(in.readLine());
+        final int M = Integer.parseInt(str.nextToken()); //count of string
+
+        int[] unsortInt;
+        int[] sortInt;
+        double[] unsortDouble;
+        double[] sortDouble;
+        String[] unsortStr;
+        String[] sortStr;
+        String[] sortStrLength;
+
+        switch (dataType) {
+            case ("string") :
+                unsortStr = new String[M];
+                for (int i = 0; i < M; i++) {
+                    str = new StringTokenizer(in.readLine());
+                    unsortStr[i] = (str.nextToken());
+                }
+                sortStr = mergeSort(unsortStr);
+                System.out.println(Arrays.toString(sortStr));
+                sortStrLength = mergeSortStringLength(unsortStr);
+                System.out.println(Arrays.toString(sortStrLength));
+                break;
+            case ("int") :
+                unsortInt = new int[M];
+                for (int i = 0; i < M; i++) {
+                    str = new StringTokenizer(in.readLine());
+                    unsortInt[i] = Integer.parseInt(str.nextToken());
+                }
+                sortInt = mergeSort(unsortInt);
+                System.out.println(Arrays.toString(sortInt));
+                break;
+            case ("double") :
+                unsortDouble = new double[M];
+                for (int i = 0; i < M; i++) {
+                    str = new StringTokenizer(in.readLine());
+                    unsortDouble[i] = Double.parseDouble(str.nextToken());
+                }
+                sortDouble = mergeSort(unsortDouble);
+                System.out.println(Arrays.toString(sortDouble));
+
+                break;
+            default :
+                System.out.println("Wrong data");
+        }
     }
 
     private static int[] mergeSort(int[] unsortData) {
