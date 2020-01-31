@@ -27,10 +27,7 @@ public class Main {
                 unsortStr = new String[M];
                 for (int i = 0; i < M; i++) {
                     str = new StringTokenizer(in.readLine());
-                    String temp = "";
-                    while (str.hasMoreTokens())
-                        temp += str.nextToken();
-                    unsortStr[i] = temp;
+                    unsortStr[i] = str.nextToken("\n");
                 }
                 sortStr = mergeSort(unsortStr);
                 System.out.println(Arrays.toString(sortStr));
