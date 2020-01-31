@@ -30,9 +30,14 @@ public class Main {
                     unsortStr[i] = str.nextToken("\n");
                 }
                 sortStr = mergeSort(unsortStr);
-                System.out.println(Arrays.toString(sortStr));
                 sortStrLength = mergeSortStringLength(unsortStr);
-                System.out.println(Arrays.toString(sortStrLength));
+                for (String item:sortStr) {
+                    System.out.println(item);
+                }
+                System.out.println();
+                for (String item:sortStrLength) {
+                    System.out.println(item);
+                }
                 break;
             case ("int") :
                 unsortInt = new int[M];
@@ -41,7 +46,9 @@ public class Main {
                     unsortInt[i] = Integer.parseInt(str.nextToken());
                 }
                 sortInt = mergeSort(unsortInt);
-                System.out.println(Arrays.toString(sortInt));
+                for (int item:sortInt) {
+                    System.out.println(item);
+                }
                 break;
             case ("double") :
                 unsortDouble = new double[M];
@@ -50,8 +57,9 @@ public class Main {
                     unsortDouble[i] = Double.parseDouble(str.nextToken());
                 }
                 sortDouble = mergeSort(unsortDouble);
-                System.out.println(Arrays.toString(sortDouble));
-
+                for (double item:sortDouble) {
+                    System.out.println(item);
+                }
                 break;
             default :
                 System.out.println("Wrong data");
